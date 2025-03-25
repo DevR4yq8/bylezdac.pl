@@ -1,0 +1,40 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: #64ffda;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
