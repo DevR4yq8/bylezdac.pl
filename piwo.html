@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wiersze dla dzieci</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffcc;
+        }
+        
+        .top-menu {
+            width: 100%;
+            background-color: #ccccff;
+            display: table;
+            table-layout: fixed;
+        }
+        
+        .top-menu-cell {
+            display: table-cell;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #aaaaaa;
+        }
+        
+        .main-header {
+            background-color: #66ff66;
+            color: #ff0000;
+            padding: 10px;
+            position: relative;
+            height: 200px;
+        }
+        
+        .main-title {
+            font-size: 36px;
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .author-name {
+            color: #ff0000;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .poem-intro {
+            color: #ff0000;
+            text-align: center;
+            line-height: 1.5;
+        }
+        
+        .author-image {
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            width: 120px;
+            height: 150px;
+        }
+        
+        .submenu {
+            width: 100%;
+            background-color: #66ff66;
+            display: table;
+            table-layout: fixed;
+        }
+        
+        .submenu-cell {
+            display: table-cell;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #aaaaaa;
+            background-color: white;
+        }
+        
+        .content-grid {
+            display: table;
+            width: 100%;
+            background-color: #66ff66;
+        }
+        
+        .content-row {
+            display: table-row;
+        }
+        
+        .content-cell {
+            display: table-cell;
+            width: 33.33%;
+            background-color: #3333ff;
+            color: white;
+            padding: 10px;
+            border: 5px solid #66ff66;
+            vertical-align: top;
+        }
+        
+        .content-cell-green {
+            display: table-cell;
+            width: 33.33%;
+            background-color: #33ff33;
+            padding: 10px;
+            border: 5px solid #66ff66;
+            vertical-align: top;
+        }
+        
+        .cell-title {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 0;
+        }
+        
+        .cell-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100px;
+            max-height: 150px;
+        }
+        
+        .poem-text {
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .article-info {
+            text-align: right;
+            font-size: 10px;
+        }
+        
+        .author-header {
+            background-color: #66ff66;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .author-submenu {
+            width: 100%;
+            background-color: #66ff66;
+            display: table;
+            table-layout: fixed;
+        }
+        
+        .author-submenu-cell {
+            display: table-cell;
+            text-align: center;
+            padding: 3px;
+            border: 1px solid #aaaaaa;
+            background-color: #ccccff;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .blue-author-link {
+            background-color: #3333ff;
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            text-align: left;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="top-menu-cell">Konopnicka</div>
+        <div class="top-menu-cell"><a href="#">Tuwim</a></div>
+        <div class="top-menu-cell">Jachowicz</div>
+        <div class="top-menu-cell">Brzechwa</div>
+    </div>
+    
+    <!-- Main Header -->
+    <div class="main-header">
+        <h1 class="main-title">Wiersze dla dzieci</h1>
+        <div class="author-name">Maria Konopnicka</div>
+        <div class="poem-intro">
+            Czy to bajka, czy nie bajka,<br>
+            Myślcie sobie, jak tam chcecie.<br>
+            A ja przecież wam powiadam:<br>
+            Krasnoludki są na świecie...
+        </div>
+        <img class="author-image" src="image1.jpg" alt="Maria Konopnicka portrait">
+    </div>
+    
+    <!-- Maria Konopnicka Submenu -->
+    <div class="submenu">
+        <div class="submenu-cell blue-author-link">Maria Konopnicka</div>
+        <div class="submenu-cell">Przy mrowisku</div>
+        <div class="submenu-cell">Kołyseczka</div>
+        <div class="submenu-cell">Bocian</div>
+        <div class="submenu-cell">Między samochodami</div>
+        <div class="submenu-cell">Podczas deszczy</div>
+    </div>
+    
+    <!-- First Content Row -->
+    <div class="content-grid">
+        <div class="content-row">
+            <div class="content-cell">
+                <h3 class="cell-title">Co Słonko widziało</h3>
+                <img class="cell-image" src="image2.jpg" alt="Book cover">
+                <div class="poem-text">
+                    Cały dzionek słonko Po niebie chodziło,<br>
+                    I tego nie widziało! Na co nie patrzyło!<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell">
+                <h3 class="cell-title">Krasnoludki</h3>
+                <img class="cell-image" src="image3.jpg" alt="Book cover">
+                <div class="poem-text">
+                    Czy to bajka, czy nie bajka, Myślcie sobie, jak tam chcecie...<br>
+                    Krasnoludki są na świecie.<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell">
+                <h3 class="cell-title">Inne wiersze<br>Marii Konopnickiej</h3>
+                <div class="poem-text">
+                    <a href="http://wierszykidladzieci.pl/konopnicka.php">http://wierszykidladzieci.pl/konopnicka.php</a><br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Julian Tuwim Section -->
+    <div class="blue-author-link">Julian Tuwim</div>
+    <div class="submenu">
+        <div class="submenu-cell">Ptasie radio</div>
+        <div class="submenu-cell">Abecadło</div>
+        <div class="submenu-cell">Rzepka</div>
+        <div class="submenu-cell">Paryk</div>
+        <div class="submenu-cell">Bambo</div>
+    </div>
+    
+    <!-- Second Content Row -->
+    <div class="content-grid">
+        <div class="content-row">
+            <div class="content-cell">
+                <h3 class="cell-title">Okulary</h3>
+                <div class="poem-text">
+                    Biega, krzyczy pan Hilary: "Gdzie są moje okulary?"<br>
+                    Szuka w spodniach i w surducie, W prawym bucie, w lewym bucie.<br>
+                    Wszystko w szafach poprzewracał, Maca maca.<br>
+                    Szuka, gniewa się, złości - nie do wiary! Klęk miał okulary!<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell">
+                <h3 class="cell-title">Spóźniony słowik</h3>
+                <div class="poem-text">
+                    Płacze pani Słowikowa w gniaździe na akacji,<br>
+                    Bo pan Słowik przed dziewiątą miał być na kolacji.<br>
+                    Tak się godzin wyznaczonych pilnie zawsze trzyma,<br>
+                    A już jest po jedenastej - i Słowika nie ma!<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell">
+                <h3 class="cell-title">Inne wiersze<br>Juliana Tuwima</h3>
+                <div class="poem-text">
+                    <a href="http://wierszykidladzieci.pl/tuwim.php">http://wierszykidladzieci.pl/tuwim.php</a><br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Stanisław Jachowicz Section -->
+    <div class="blue-author-link">Stanisław Jachowicz</div>
+    <div class="author-submenu">
+        <div class="author-submenu-cell">Chory kotek</div>
+        <div class="author-submenu-cell">Andzia</div>
+        <div class="author-submenu-cell">Czyżyk</div>
+        <div class="author-submenu-cell">Pszczółka</div>
+        <div class="author-submenu-cell">Sierotka</div>
+    </div>
+    
+    <!-- Third Content Row -->
+    <div class="content-grid">
+        <div class="content-row">
+            <div class="content-cell-green">
+                <h3 class="cell-title">Karolek i słońce</h3>
+                <img class="cell-image" src="image4.jpg" alt="Sun illustration">
+                <div class="poem-text">
+                    Czasem dobrze życzących nie lubimy ludzi.<br>
+                    Karolka wciało słońce i Karolek budzi.<br>
+                    Ależ dajże mi pokój! — rzecze rozgniewany.—<br>
+                    O, nie! — odpowie słońce — wstawaj mój kochany!<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell-green">
+                <h3 class="cell-title">Dziecię i zegar</h3>
+                <img class="cell-image" src="image5.jpg" alt="Clock illustration">
+                <div class="poem-text">
+                    Uderza godzina — i cóż ten głos znaczy? —<br>
+                    Pytało się dziecko, a matka tłumaczy:<br>
+                    Dziś jeszcze zrozumiesz, twój umysł nie zgłębia,<br>
+                    Jak całość stanowią te kółka i śruba.<br>
+                    Jak człowiek cudownie potrafi czas mierzyć.<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell-green">
+                <h3 class="cell-title">Inne wiersze<br>Stanisława Jachowicza</h3>
+                <div class="poem-text">
+                    <a href="http://wierszykidladzieci.pl/jachowicz.php">http://wierszykidladzieci.pl/jachowicz.php</a><br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fourth Content Row -->
+    <div class="content-grid">
+        <div class="content-row">
+            <div class="content-cell-green">
+                <h3 class="cell-title">Piał kogucik kukuryku</h3>
+                <img class="cell-image" src="image6.jpg" alt="Rooster illustration">
+                <div class="poem-text">
+                    Piał kogucik kukuryku!<br>
+                    W rano, mój chłopczyku.<br>
+                    A chłopczyk się ze snu budzi,<br>
+                    Patrzy - dzień chodzi ludzi;<br>
+                    Więc się szybko zrywa z łóżka,<br>
+                    By nie stracił za baraszkę.<br>
+                    I rzekł: na twe kukuryku<br>
+                    Dziękuję ci koguciku.<br>
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell-green">
+                <h3 class="cell-title">Inne wiersze<br>Stanisława Jachowicza</h3>
+                <div class="poem-text">
+                    <a href="http://wierszykidladzieci.pl/jachowicz.php">http://wierszykidladzieci.pl/jachowicz.php</a><br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Jan Brzechwa Section -->
+    <div class="blue-author-link">Jan Brzechwa</div>
+    <div class="submenu">
+        <div class="submenu-cell">Wrona i ser</div>
+        <div class="submenu-cell">Psie smutki</div>
+        <div class="submenu-cell">Szóstka dzwoneczka</div>
+        <div class="submenu-cell">Hipopotam</div>
+        <div class="submenu-cell">Na straganie</div>
+    </div>
+    
+    <!-- Fifth Content Row -->
+    <div class="content-grid">
+        <div class="content-row">
+            <div class="content-cell">
+                <h3 class="cell-title">Na wyspach Bergamutach</h3>
+                <div class="poem-text">
+                    Na wyspach Bergamutach<br>
+                    Podobno jest kot w butach,<br>
+                    Widziano także osła,<br>
+                    Którego mrówka niosła.<br>
+                    Jest kura samograjka,<br>
+                    Znosząca złote jajka,<br>
+                    Na dębach rosną jabłka<br>
+                    W gronostajowych czapkach.<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell">
+                <h3 class="cell-title">Spóźniony słowik</h3>
+                <div class="poem-text">
+                    Płacze pani Słowikowa w gniaździe na akacji,<br>
+                    Bo pan Słowik przed dziewiątą miał być na kolacji.<br>
+                    Tak się godzin wyznaczonych pilnie zawsze trzyma,<br>
+                    A już jest po jedenastej - i Słowika nie ma!<br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            <div class="content-cell">
+                <h3 class="cell-title">Inne wiersze<br>Jana Brzechwy</h3>
+                <div class="poem-text">
+                    <a href="http://wierszykidladzieci.pl/wierszyki/brzechwy.php">http://wierszykidladzieci.pl/wierszyki/brzechwy.php</a><br>
+                    Pełny tekst...
+                </div>
+                <div class="article-info">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+                  </html>
