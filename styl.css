@@ -1,122 +1,87 @@
-/* Ogólne style dla strony */
 body {
-    background-color: #FFFFE0; /* Jasnożółte tło */
-    font-family: Arial, sans-serif;
-    margin: 0;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Styl dla nagłówka */
-header {
-    background-color: #90EE90; /* Jasnozielone tło */
-    padding: 20px;
+.header {
+  background-color: #ffd700; /* Żółty */
+  padding: 20px;
+  text-align: center;
 }
 
-/* Style dla górnej i dolnej nawigacji */
-.top-nav, .bottom-nav {
-    background-color: #DDA0DD; /* Jasnofioletowe tło */
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
+.header .title {
+  font-size: 2em;
+  font-weight: bold;
 }
 
-.top-nav a, .bottom-nav a, footer a {
-    color: black;
-    text-decoration: none; /* Brak podkreślenia domyślnie */
+.header .author {
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
-.top-nav a:hover, .bottom-nav a:hover, footer a:hover {
-    text-decoration: underline; /* Podkreślenie przy najechaniu */
+.header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
 }
 
-/* Styl dla głównego nagłówka */
-h1 {
-    color: #FFFFFF; /* Biały tekst */
-    text-align: center;
-    font-size: 2.5em;
-    margin: 20px 0;
+.content {
+  background-color: #90ee90; /* Jasnozielony */
+  padding: 20px;
 }
 
-/* Kontener dla podtytułu i zdjęcia w nagłówku */
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
+.poem {
+  background-color: #add8e6; /* Jasnoniebieski */
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-/* Styl dla podtytułu */
-.subheader {
-    color: #FF0000; /* Czerwony tekst */
-    text-align: center;
-    flex: 1;
+.other-poems {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.subheader p {
-    margin: 5px 0;
+.other-poems a {
+  background-color: #4682b4; /* Stalowoniebieski */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
 }
 
-/* Styl dla zdjęcia w nagłówku */
-.portrait {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; /* Okrągłe zdjęcie */
+.poem-details {
+  font-size: 0.8em;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Styl dla głównej zawartości */
-main {
-    padding: 20px;
+.navigation {
+  background-color: #87ceeb; /* Jasnoniebieski */
+  padding: 10px;
+  text-align: center;
 }
 
-/* Styl dla sekcji (rzędów) */
-.row {
-    background-color: #90EE90; /* Jasnozielone tło */
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Trzy kolumny */
-    gap: 20px;
-    padding: 20px;
+.navigation a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
 }
 
-/* Styl dla bloków w sekcjach */
-.block {
-    background-color: #0000FF; /* Niebieskie tło */
-    color: #FFFFFF; /* Biały tekst */
-    padding: 20px;
-    border-radius: 10px; /* Zaokrąglone rogi */
-    text-align: center;
+.poem-section {
+  background-color: #98fb98; /* Jasnozielony */
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-.block h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+.poem-section .poem-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.block img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.block p {
-    margin: 5px 0;
-}
-
-.block .info {
-    font-size: 0.8em;
-    margin-top: 10px;
-}
-
-.block .author {
-    font-style: italic;
-    margin-top: 5px;
-}
-
-/* Styl dla stopki */
-footer {
-    background-color: #DDA0DD; /* Jasnofioletowe tło */
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+.poem-section img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
 }
