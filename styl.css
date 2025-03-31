@@ -1,0 +1,122 @@
+/* Ogólne style dla strony */
+body {
+    background-color: #FFFFE0; /* Jasnożółte tło */
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Styl dla nagłówka */
+header {
+    background-color: #90EE90; /* Jasnozielone tło */
+    padding: 20px;
+}
+
+/* Style dla górnej i dolnej nawigacji */
+.top-nav, .bottom-nav {
+    background-color: #DDA0DD; /* Jasnofioletowe tło */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.top-nav a, .bottom-nav a, footer a {
+    color: black;
+    text-decoration: none; /* Brak podkreślenia domyślnie */
+}
+
+.top-nav a:hover, .bottom-nav a:hover, footer a:hover {
+    text-decoration: underline; /* Podkreślenie przy najechaniu */
+}
+
+/* Styl dla głównego nagłówka */
+h1 {
+    color: #FFFFFF; /* Biały tekst */
+    text-align: center;
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+
+/* Kontener dla podtytułu i zdjęcia w nagłówku */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Styl dla podtytułu */
+.subheader {
+    color: #FF0000; /* Czerwony tekst */
+    text-align: center;
+    flex: 1;
+}
+
+.subheader p {
+    margin: 5px 0;
+}
+
+/* Styl dla zdjęcia w nagłówku */
+.portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Okrągłe zdjęcie */
+}
+
+/* Styl dla głównej zawartości */
+main {
+    padding: 20px;
+}
+
+/* Styl dla sekcji (rzędów) */
+.row {
+    background-color: #90EE90; /* Jasnozielone tło */
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trzy kolumny */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Styl dla bloków w sekcjach */
+.block {
+    background-color: #0000FF; /* Niebieskie tło */
+    color: #FFFFFF; /* Biały tekst */
+    padding: 20px;
+    border-radius: 10px; /* Zaokrąglone rogi */
+    text-align: center;
+}
+
+.block h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.block img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.block p {
+    margin: 5px 0;
+}
+
+.block .info {
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.block .author {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Styl dla stopki */
+footer {
+    background-color: #DDA0DD; /* Jasnofioletowe tło */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
