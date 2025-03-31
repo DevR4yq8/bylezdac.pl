@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wiersze dla dzieci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .authors {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .container {
+            column-count: 2;
+            column-gap: 50px;
+        }
+
+        .article {
+            break-inside: avoid;
+            margin-bottom: 30px;
+        }
+
+        .author-name {
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .poem-title {
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .poem-content {
+            line-height: 1.5;
+            white-space: pre-line;
+            margin: 10px 0;
+        }
+
+        .pub-info {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+
+        a {
+            color: blue;
+            text-decoration: underline;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .other-poems {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="authors">
+        <span>Konopnicka</span>
+        <span>Tuwim</span>
+        <span>Jachowicz</span>
+        <span>Brzechwa</span>
+    </nav>
+
+    <h1>Wiersze dla dzieci</h1>
+
+    <div class="container">
+        <!-- Kolumna 1 -->
+        <div class="article">
+            <div class="author-name">Maria Konopnicka</div>
+            <div class="poem-title">Czy to bajka, czy nie bajka</div>
+            <pre class="poem-content">Czy to bajka, czy nie bajka,  
+Myślcie sobie, jak tam chcecie.  
+A ja przecież wam powiadam:  
+Krasnoludki są na świecie…</pre>
+            <div class="pub-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45.</div>
+            <a href="#">Penny tekst...</a>
+        </div>
+
+        <div class="article">
+            <div class="author-name">Maria Konopnicka</div>
+            <pre class="poem-content">Czy dziecki zamo. Po metnie dodziało.  
+Czego nie widziału! Na co nie pamyzło!</pre>
+            <div class="pub-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45.</div>
+            <a href="#">Penny tekst...</a>
+        </div>
+
+        <div class="article">
+            <div class="author-name">Julian Tuwim</div>
+            <div class="poem-title">Okulary</div>
+            <pre class="poem-content">Bicga, krzyczy pan Hilary: "Gdzie są moje okulary".  
+Sztuka w spotkanie i w urabicie, W prawnym bucie, w lewym bucie.  
+Wszystkie w trafach poprawczenia: Mocna siadroska, palo maca.  
+"Stanokli krzyczy - nie do winny! Ktoś mi wliczał obalany!"</pre>
+            <div class="pub-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45.</div>
+            <a href="#">Penny tekst...</a>
+        </div>
+
+        <!-- Pozostałe artykuły analogicznie -->
+
+        <!-- Kolumna 2 -->
+        <div class="article">
+            <div class="other-poems">
+                <div class="poem-title">Inne wiersze</div>
+                <div>Marti Konopnickiej</div>
+                <a href="http://usersykielindzieci.pl">http://usersykielindzieci.pl</a>
+                <a href="/usersykielinopnickiej.php">/usersykielinopnickiej.php</a>
+                <a href="#">Pelny tekst...</a>
+                <div class="pub-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45.</div>
+            </div>
+        </div>
+
+        <!-- Pozostałe artykuły analogicznie -->
+        
+    </div>
+</body>
+</html>
