@@ -1,0 +1,269 @@
+/* Basic Reset / Defaults */
+body {
+    background-color: #00FF00; /* Bright lime green */
+    font-family: Verdana, Arial, Helvetica, sans-serif; /* Font looks like Verdana or Arial */
+    margin: 0;
+    padding: 0;
+    color: #000; /* Default text color */
+    font-size: 14px; /* Base font size estimation */
+}
+
+.container {
+    max-width: 1000px; /* Adjust width to match image proportions */
+    margin: 0 auto; /* Center the content */
+    background-color: #00FF00;
+}
+
+/* Top Navigation */
+.top-nav {
+    background-color: #CCCCFF; /* Light purple/lavender */
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid #999; /* Subtle border */
+}
+
+.top-nav button {
+    background-color: #E6E6FA; /* Slightly lighter lavender for buttons */
+    border: 1px outset #aaa; /* Button border style */
+    padding: 4px 20px; /* Button padding */
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 0.9em; /* Slightly smaller font */
+    color: #000;
+}
+
+/* Main Header Section */
+.main-header {
+    padding: 20px;
+    overflow: hidden; /* Contain the floated image */
+    position: relative;
+}
+
+.main-header .portrait {
+    float: right;
+    width: 160px; /* Adjust size */
+    height: auto;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border: 1px solid black; /* Black border */
+}
+
+.main-header h1 {
+    color: red;
+    font-size: 3.5em; /* Large title */
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif; /* Possibly a different font */
+}
+
+.main-header h2 {
+    color: red;
+    font-size: 1.8em; /* Slightly larger secondary title */
+    margin: 0 0 15px 0;
+    font-weight: bold;
+}
+
+.main-header .quote {
+    color: red;
+    font-size: 1.2em; /* Larger quote text */
+    font-style: normal; /* Doesn't look italic in the image */
+    line-height: 1.5;
+    margin: 0;
+    /* Prevent text wrapping under the image */
+    max-width: calc(100% - 190px); /* Adjust based on image width + margin */
+}
+
+
+/* Author Section General Styles */
+.author-section {
+    margin-top: 0px; /* No margin between sections */
+    border-top: 2px solid black; /* Separator line */
+}
+
+.author-header {
+    background-color: #0000CD; /* Medium blue, slightly lighter than pure blue */
+    color: white;
+    padding: 6px 15px;
+    font-size: 1.3em; /* Larger author header */
+    font-weight: bold;
+}
+
+.sub-nav {
+    background-color: #98FB98; /* Pale green */
+    padding: 6px 5px;
+    text-align: left; /* Align buttons left */
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+
+.sub-nav a {
+    display: inline-block;
+    background-color: #F0F0F0; /* Light grey background */
+    border: 1px outset #aaa; /* Button border style */
+    padding: 3px 12px; /* Button padding */
+    margin: 2px 3px; /* Spacing between buttons */
+    text-decoration: none;
+    color: #000; /* Black text */
+    font-size: 0.9em;
+    line-height: 1.2;
+    text-align: center;
+}
+.sub-nav a:hover {
+     background-color: #ddd;
+}
+
+
+/* Poem Blocks Container */
+.poems-container {
+    display: flex;
+    /* justify-content: space-between; Use padding/margins instead for exact spacing */
+    padding: 10px;
+    gap: 10px; /* Space between blocks */
+    flex-wrap: wrap;
+    min-height: 200px; /* Ensure container has some height */
+}
+
+/* Individual Poem Block Styles */
+.poem-block {
+    flex: 1 1 30%; /* Aim for 3 per row */
+    max-width: calc(33.333% - 10px); /* Precise width for 3 columns with gap */
+    min-width: 280px; /* Minimum width before wrapping might occur */
+    padding: 15px;
+    border: none; /* No border on the block itself based on image */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4; /* Standard line height */
+}
+
+/* Empty block for layout */
+.poem-block.empty-block {
+    background-color: transparent !important; /* Ensure it's invisible */
+    border: none;
+    padding: 0;
+    margin: 0;
+    visibility: hidden; /* Hide completely but keep space */
+}
+
+
+.poem-block h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.15em; /* Slightly larger title */
+    font-weight: bold;
+    text-align: left; /* Align title left */
+    line-height: 1.2;
+}
+
+.poem-block img {
+    max-width: 110px; /* Adjust image size */
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto; /* Center image, more bottom margin */
+    border: 1px solid black; /* Black border around images */
+}
+
+.poem-block p {
+    font-size: 0.9em; /* Standard paragraph size */
+    margin-bottom: 10px;
+    flex-grow: 1; /* Allow text block to take available space */
+}
+/* Special class for paragraphs that only contain links */
+.poem-block p.link-paragraph {
+    flex-grow: 0; /* Don't let link paragraphs grow excessively */
+    margin-top: auto; /* Push towards bottom if possible */
+    margin-bottom: 10px;
+}
+
+.poem-block p a { /* Styling for links within paragraphs */
+    color: inherit; /* Use parent's text color */
+    text-decoration: underline; /* Keep underline for links */
+}
+
+
+.poem-block .full-text-link {
+    display: block;
+    text-align: right;
+    font-size: 0.85em; /* Slightly larger link */
+    margin-top: auto; /* Push link towards bottom */
+    margin-bottom: 10px;
+    color: inherit;
+    text-decoration: underline;
+}
+
+.poem-block .meta-info {
+    font-size: 0.8em; /* Smaller meta info */
+    color: #333; /* Dark grey color for meta info */
+    margin-top: 10px; /* Space above meta info */
+    margin-bottom: 0;
+    padding-top: 5px; /* Space above meta info */
+    border-top: 1px solid #ccc; /* Lighter separator line */
+    text-align: left;
+    line-height: 1.3;
+}
+
+
+/* --- Section Specific Styles --- */
+
+/* Konopnicka & Tuwim */
+.konopnicka .poems-container,
+.tuwim .poems-container {
+    background-color: #0000CD; /* Medium blue */
+    color: white;
+}
+.konopnicka .poem-block,
+.tuwim .poem-block {
+    /* Background is inherited from container */
+    color: white;
+}
+ .konopnicka .poem-block h3,
+ .tuwim .poem-block h3 {
+    color: white; /* Ensure titles are white */
+ }
+.konopnicka .poem-block .meta-info,
+.tuwim .poem-block .meta-info {
+    color: #E0E0E0; /* Lighter grey for meta info */
+    border-top-color: #6495ED; /* Cornflower blue separator */
+}
+ .konopnicka .poem-block p a,
+ .tuwim .poem-block p a,
+ .konopnicka .poem-block .full-text-link,
+ .tuwim .poem-block .full-text-link {
+    color: #ADD8E6; /* Light blue links */
+ }
+
+
+/* Jachowicz */
+.jachowicz .poems-container {
+    background-color: #00FF00; /* Lime green */
+    color: black;
+}
+.jachowicz .poem-block {
+    color: black;
+}
+.jachowicz .poem-block .meta-info {
+    color: #333; /* Dark grey meta */
+    border-top-color: #aaa;
+}
+.jachowicz .poem-block p a,
+.jachowicz .poem-block .full-text-link {
+    color: blue; /* Standard blue links */
+}
+
+
+/* Brzechwa */
+.brzechwa .poems-container {
+    background-color: white; /* White */
+    color: black;
+}
+ .brzechwa .poem-block {
+    color: black;
+ }
+ .brzechwa .poem-block .meta-info {
+    color: #333; /* Dark grey meta */
+    border-top-color: #ccc; /* Light grey separator */
+}
+ .brzechwa .poem-block p a,
+ .brzechwa .poem-block .full-text-link {
+    color: blue; /* Standard blue links */
+  }
