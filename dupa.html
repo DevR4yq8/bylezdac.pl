@@ -1,269 +1,218 @@
-/* Basic Reset / Defaults */
-body {
-    background-color: #00FF00; /* Bright lime green */
-    font-family: Verdana, Arial, Helvetica, sans-serif; /* Font looks like Verdana or Arial */
-    margin: 0;
-    padding: 0;
-    color: #000; /* Default text color */
-    font-size: 14px; /* Base font size estimation */
-}
+<!DOCTYPE  html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiersze dla dzieci</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="top-nav">
+            <button>Konopnicka</button>
+            <button>Tuwim</button>
+            <button>Jachowicz</button>
+            <button>Brzechwa</button>
+        </nav>
 
-.container {
-    max-width: 1000px; /* Adjust width to match image proportions */
-    margin: 0 auto; /* Center the content */
-    background-color: #00FF00;
-}
+        <header class="main-header">
+            <!-- Replace 'portrait.jpg' with the actual path to the portrait image -->
+            <img src="portrait.jpg" alt="Maria Konopnicka Portrait" class="portrait">
+            <h1>Wiersze dla dzieci</h1>
+            <h2>Maria Konopnicka</h2>
+            <p class="quote">
+                Czy to bajka, czy nie bajka,<br>
+                Myślcie sobie, jak tam chcecie.<br>
+                A ja przecież wam powiadam:<br>
+                Krasnoludki są na świecie...
+            </p>
+        </header>
 
-/* Top Navigation */
-.top-nav {
-    background-color: #CCCCFF; /* Light purple/lavender */
-    padding: 5px 0;
-    text-align: center;
-    border-bottom: 1px solid #999; /* Subtle border */
-}
+        <!-- === Konopnicka Section === -->
+        <section class="author-section konopnicka">
+            <header class="author-header">Maria Konopnicka...</header>
+            <nav class="sub-nav">
+                <a href="#">Przy mrowisku</a>
+                <a href="#">Kukułeczka</a>
+                <a href="#">Bocian</a>
+                <a href="#">Muchy samochwały</a>
+                <a href="#">Tęczowy duszek</a>
+            </nav>
+            <div class="poems-container">
+                <article class="poem-block">
+                    <h3>Co Słonko widziało</h3>
+                    <!-- Replace 'slonko.jpg' with the actual image path -->
+                    <img src="slonko.jpg" alt="Co Słonko widziało">
+                    <p>Cały dzionek słonko Po niebie chodziło,<br>Czego nie widziało! Na co nie patrzyło!</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+                <article class="poem-block">
+                    <h3>Krasnoludki</h3>
+                    <!-- Replace 'krasnoludki.jpg' with the actual image path -->
+                    <img src="krasnoludki.jpg" alt="Krasnoludki">
+                    <p>Czy to bajka, czy nie bajka, Myślcie sobie,<br> jak tam chcecie...<br>...Krasnoludki są na świecie.</p>
+                     <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+               </article>
+                <article class="poem-block">
+                    <h3>Inne wiersze<br>Marii Konopnickiej</h3>
+                     <p class="link-paragraph"><a href="http://wierszykikladzieci.pl/wierszykikonopnickiej.php">http://wierszykikladzieci.pl<br>/wierszykikonopnickiej.php</a></p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                     <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+            </div>
+        </section>
 
-.top-nav button {
-    background-color: #E6E6FA; /* Slightly lighter lavender for buttons */
-    border: 1px outset #aaa; /* Button border style */
-    padding: 4px 20px; /* Button padding */
-    margin: 0 5px;
-    cursor: pointer;
-    font-size: 0.9em; /* Slightly smaller font */
-    color: #000;
-}
+        <!-- === Tuwim Section === -->
+        <section class="author-section tuwim">
+             <header class="author-header">Julian Tuwim...</header>
+             <nav class="sub-nav">
+                <a href="#">Ptasie radio</a>
+                <a href="#">Abecadło</a>
+                <a href="#">Rzepka</a>
+                <a href="#">Pstryk</a>
+                <a href="#">Bambo</a>
+             </nav>
+             <div class="poems-container">
+                <article class="poem-block">
+                    <h3>Okulary</h3>
+                    <p>Biega, krzyczy pan Hilary: "Gdzie są moje okulary?"<br>
+                       Szuka w spodniach i w surducie, W prawym bucie, w lewym bucie.<br>
+                       Wszystko w szafach poprzewracał, Maca szlafrok, palto maca.<br>
+                       "Skandal! - krzyczy - nie do wiary! Ktoś mi ukradł okulary!"</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+                <article class="poem-block">
+                    <h3>Spóźniony słowik</h3>
+                    <p>Płacze pani Słowikowa w gniazdku na akacji,<br>
+                       Bo pan Słowik przed dziewiątą miał być na kolacji,<br>
+                       Tak się godzin wyznaczonych pilnie zawsze trzyma,<br>
+                       A już jest po jedenastej - i Słowika nie ma!</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+                 <article class="poem-block">
+                    <h3>Inne wiersze<br>Juliana Tuwima</h3>
+                     <p class="link-paragraph"><a href="http://wierszykikladzieci.pl/wierszetuwima.php">http://wierszykikladzieci.pl<br>/wierszetuwima.php</a></p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                     <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+             </div>
+        </section>
 
-/* Main Header Section */
-.main-header {
-    padding: 20px;
-    overflow: hidden; /* Contain the floated image */
-    position: relative;
-}
+        <!-- === Jachowicz Section === -->
+        <section class="author-section jachowicz">
+             <header class="author-header">Stanisław Jachowicz...</header>
+             <nav class="sub-nav">
+                <a href="#">Figielki Kazia</a>
+                <a href="#">Andzia</a>
+                <a href="#">Kukuryku</a>
+                <a href="#">Pszczółka</a>
+                <a href="#">Kurczątka</a>
+             </nav>
+             <div class="poems-container">
+                 <article class="poem-block">
+                    <h3>Karolek i słońce</h3>
+                    <!-- Replace 'karolek.jpg' with the actual image path -->
+                    <img src="karolek.jpg" alt="Karolek i słońce">
+                    <p>Czasem dobrze życzących nie lubimy ludzi.<br>
+                       Raniutko wstało słońce i Karolka budzi.<br>
+                       Ale dajże mi pokój! — rzecze rozgniewany. —<br>
+                       O, nie! — odpowie słońce — wstawaj mój kochany</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+                 <article class="poem-block">
+                    <h3>Dziecię i zegar</h3>
+                    <!-- Replace 'zegar.jpg' with the actual image path -->
+                    <img src="zegar.jpg" alt="Dziecię i zegar">
+                    <p>Uderza godzina. — I cóż ten głos znaczy? —<br>
+                       Pytało się dziecko, a matka tłumaczy:<br>
+                       — Dziś jeszcze zrozumieć twój umysł nie zdoła,<br>
+                       Jak całość stanowią te kółka i koła,<br>
+                       Jak człowiek cudownie potrafił czas zmierzyć,</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+                 <article class="poem-block empty-block">
+                     <!-- Empty block to maintain layout -->
+                 </article>
+             </div>
+             <!-- Second row for Jachowicz -->
+             <div class="poems-container">
+                 <article class="poem-block">
+                    <h3>Piał kogucik kukuryku</h3>
+                    <!-- Replace 'kogucik.jpg' with the actual image path -->
+                    <img src="kogucik.jpg" alt="Piał kogucik kukuryku">
+                    <p>Piał kogucik: kukuryku!<br>
+                       Wstawaj rano, mój chłopczyku.<br>
+                       ——<br>
+                       A chłopczyk się ze snu budzi,<br>
+                       Patrzy.... dużo chodzi ludzi;<br>
+                       Więc się szybko zrywa z łóżka,<br>
+                       By nie uszedł za leniuszka;<br>
+                       I rzekł: za twe kukuryku<br>
+                       Dziękuję ci koguciku.</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                 </article>
+                 <article class="poem-block empty-block">
+                     <!-- Empty block to maintain layout -->
+                 </article>
+                 <article class="poem-block">
+                     <h3>Inne wiersze<br>Stanisława Jachowicza</h3>
+                     <p class="link-paragraph"><a href="http://wierszykikladzieci.pl/jachowicz/">http://wierszykikladzieci.pl<br>/jachowicz/</a></p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                     <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                 </article>
+             </div>
+        </section>
 
-.main-header .portrait {
-    float: right;
-    width: 160px; /* Adjust size */
-    height: auto;
-    margin-left: 25px;
-    margin-bottom: 10px;
-    border: 1px solid black; /* Black border */
-}
+        <!-- === Brzechwa Section === -->
+        <section class="author-section brzechwa">
+             <header class="author-header">Jan Brzechwa...</header>
+             <nav class="sub-nav">
+                <a href="#">Wrona i ser</a>
+                <a href="#">Psie smutki</a>
+                <a href="#">Kaczka dziwaczka</a>
+                <a href="#">Hipopotam</a>
+                <a href="#">Na straganie</a>
+             </nav>
+             <div class="poems-container">
+                <article class="poem-block">
+                    <h3>Na wyspach Bergamutach</h3>
+                    <p>Na wyspach Bergamutach<br>
+                       Podobno jest kot w butach,<br>
+                       Widziano także osła,<br>
+                       Którego mrówka niosła,<br>
+                       Jest kura samograjka<br>
+                       Znosząca złote jajka,<br>
+                       Na dębach rosną jabłka<br>
+                       W gronostajowych czapkach,</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+                <article class="poem-block">
+                    <!-- Note: The image shows "Spóźniony słowik" here again, likely a copy/paste error in the original source -->
+                    <h3>Spóźniony słowik</h3>
+                    <p>Płacze pani Słowikowa w gniazdku na akacji,<br>
+                       Bo pan Słowik przed dziewiątą miał być na kolacji,<br>
+                       Tak się godzin wyznaczonych pilnie zawsze trzyma,<br>
+                       A już jest po jedenastej - i Słowika nie ma!</p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+                <article class="poem-block">
+                    <h3>Inne wiersze<br>Jana Brzechwy</h3>
+                    <p class="link-paragraph"><a href="http://wierszykikladzieci.pl/wierszykibrzechwy.php">http://wierszykikladzieci.pl<br>/wierszykibrzechwy.php</a></p>
+                    <a href="#" class="full-text-link">Pełny tekst...</a>
+                    <p class="meta-info">Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45</p>
+                </article>
+             </div>
+        </section>
 
-.main-header h1 {
-    color: red;
-    font-size: 3.5em; /* Large title */
-    margin: 0 0 10px 0;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif; /* Possibly a different font */
-}
-
-.main-header h2 {
-    color: red;
-    font-size: 1.8em; /* Slightly larger secondary title */
-    margin: 0 0 15px 0;
-    font-weight: bold;
-}
-
-.main-header .quote {
-    color: red;
-    font-size: 1.2em; /* Larger quote text */
-    font-style: normal; /* Doesn't look italic in the image */
-    line-height: 1.5;
-    margin: 0;
-    /* Prevent text wrapping under the image */
-    max-width: calc(100% - 190px); /* Adjust based on image width + margin */
-}
-
-
-/* Author Section General Styles */
-.author-section {
-    margin-top: 0px; /* No margin between sections */
-    border-top: 2px solid black; /* Separator line */
-}
-
-.author-header {
-    background-color: #0000CD; /* Medium blue, slightly lighter than pure blue */
-    color: white;
-    padding: 6px 15px;
-    font-size: 1.3em; /* Larger author header */
-    font-weight: bold;
-}
-
-.sub-nav {
-    background-color: #98FB98; /* Pale green */
-    padding: 6px 5px;
-    text-align: left; /* Align buttons left */
-    border-top: 1px solid #666;
-    border-bottom: 1px solid #666;
-}
-
-.sub-nav a {
-    display: inline-block;
-    background-color: #F0F0F0; /* Light grey background */
-    border: 1px outset #aaa; /* Button border style */
-    padding: 3px 12px; /* Button padding */
-    margin: 2px 3px; /* Spacing between buttons */
-    text-decoration: none;
-    color: #000; /* Black text */
-    font-size: 0.9em;
-    line-height: 1.2;
-    text-align: center;
-}
-.sub-nav a:hover {
-     background-color: #ddd;
-}
-
-
-/* Poem Blocks Container */
-.poems-container {
-    display: flex;
-    /* justify-content: space-between; Use padding/margins instead for exact spacing */
-    padding: 10px;
-    gap: 10px; /* Space between blocks */
-    flex-wrap: wrap;
-    min-height: 200px; /* Ensure container has some height */
-}
-
-/* Individual Poem Block Styles */
-.poem-block {
-    flex: 1 1 30%; /* Aim for 3 per row */
-    max-width: calc(33.333% - 10px); /* Precise width for 3 columns with gap */
-    min-width: 280px; /* Minimum width before wrapping might occur */
-    padding: 15px;
-    border: none; /* No border on the block itself based on image */
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.4; /* Standard line height */
-}
-
-/* Empty block for layout */
-.poem-block.empty-block {
-    background-color: transparent !important; /* Ensure it's invisible */
-    border: none;
-    padding: 0;
-    margin: 0;
-    visibility: hidden; /* Hide completely but keep space */
-}
-
-
-.poem-block h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.15em; /* Slightly larger title */
-    font-weight: bold;
-    text-align: left; /* Align title left */
-    line-height: 1.2;
-}
-
-.poem-block img {
-    max-width: 110px; /* Adjust image size */
-    height: auto;
-    display: block;
-    margin: 0 auto 15px auto; /* Center image, more bottom margin */
-    border: 1px solid black; /* Black border around images */
-}
-
-.poem-block p {
-    font-size: 0.9em; /* Standard paragraph size */
-    margin-bottom: 10px;
-    flex-grow: 1; /* Allow text block to take available space */
-}
-/* Special class for paragraphs that only contain links */
-.poem-block p.link-paragraph {
-    flex-grow: 0; /* Don't let link paragraphs grow excessively */
-    margin-top: auto; /* Push towards bottom if possible */
-    margin-bottom: 10px;
-}
-
-.poem-block p a { /* Styling for links within paragraphs */
-    color: inherit; /* Use parent's text color */
-    text-decoration: underline; /* Keep underline for links */
-}
-
-
-.poem-block .full-text-link {
-    display: block;
-    text-align: right;
-    font-size: 0.85em; /* Slightly larger link */
-    margin-top: auto; /* Push link towards bottom */
-    margin-bottom: 10px;
-    color: inherit;
-    text-decoration: underline;
-}
-
-.poem-block .meta-info {
-    font-size: 0.8em; /* Smaller meta info */
-    color: #333; /* Dark grey color for meta info */
-    margin-top: 10px; /* Space above meta info */
-    margin-bottom: 0;
-    padding-top: 5px; /* Space above meta info */
-    border-top: 1px solid #ccc; /* Lighter separator line */
-    text-align: left;
-    line-height: 1.3;
-}
-
-
-/* --- Section Specific Styles --- */
-
-/* Konopnicka & Tuwim */
-.konopnicka .poems-container,
-.tuwim .poems-container {
-    background-color: #0000CD; /* Medium blue */
-    color: white;
-}
-.konopnicka .poem-block,
-.tuwim .poem-block {
-    /* Background is inherited from container */
-    color: white;
-}
- .konopnicka .poem-block h3,
- .tuwim .poem-block h3 {
-    color: white; /* Ensure titles are white */
- }
-.konopnicka .poem-block .meta-info,
-.tuwim .poem-block .meta-info {
-    color: #E0E0E0; /* Lighter grey for meta info */
-    border-top-color: #6495ED; /* Cornflower blue separator */
-}
- .konopnicka .poem-block p a,
- .tuwim .poem-block p a,
- .konopnicka .poem-block .full-text-link,
- .tuwim .poem-block .full-text-link {
-    color: #ADD8E6; /* Light blue links */
- }
-
-
-/* Jachowicz */
-.jachowicz .poems-container {
-    background-color: #00FF00; /* Lime green */
-    color: black;
-}
-.jachowicz .poem-block {
-    color: black;
-}
-.jachowicz .poem-block .meta-info {
-    color: #333; /* Dark grey meta */
-    border-top-color: #aaa;
-}
-.jachowicz .poem-block p a,
-.jachowicz .poem-block .full-text-link {
-    color: blue; /* Standard blue links */
-}
-
-
-/* Brzechwa */
-.brzechwa .poems-container {
-    background-color: white; /* White */
-    color: black;
-}
- .brzechwa .poem-block {
-    color: black;
- }
- .brzechwa .poem-block .meta-info {
-    color: #333; /* Dark grey meta */
-    border-top-color: #ccc; /* Light grey separator */
-}
- .brzechwa .poem-block p a,
- .brzechwa .poem-block .full-text-link {
-    color: blue; /* Standard blue links */
- }
+    </div> <!-- /container -->
+</body>
+</html>
