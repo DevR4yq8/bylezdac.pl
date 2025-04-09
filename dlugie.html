@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Wiersze dla dzieci</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fffbe6;
+        }
+        .top-nav {
+            background-color: #d0d0d0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .top-nav a {
+            display: block;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            border-right: 1px solid #b0b0b0;
+            flex: 1;
+        }
+        .top-nav a:last-child {
+            border-right: none;
+        }
+        .header {
+            background-color: #7cff7c;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header h1 {
+            color: red;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .header img {
+            position: absolute;
+            right: 50px;
+            top: 20px;
+            width: 150px;
+        }
+        .author-section {
+            background-color: #7cff7c;
+            padding: 0;
+        }
+        .author-header {
+            background-color: #7070ff;
+            padding: 5px;
+            color: white;
+            font-weight: bold;
+        }
+        .author-nav {
+            display: flex;
+            background-color: #d0d0d0;
+        }
+        .author-nav a {
+            display: block;
+            padding: 3px 10px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            border-right: 1px solid #b0b0b0;
+            flex: 1;
+            font-size: 12px;
+        }
+        .poems-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .poem-box {
+            width: 33.33%;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        .poem-content {
+            background-color: #5050ff;
+            height: 190px;
+            padding: 5px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .poem-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .poem-image {
+            width: 100px;
+            float: left;
+            margin-right: 10px;
+        }
+        .poem-text {
+            font-size: 12px;
+        }
+        .poem-link {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            color: white;
+            font-size: 12px;
+        }
+        .poem-details {
+            font-size: 10px;
+            margin-top: 5px;
+        }
+        .author-box {
+            background-color: #7cff7c;
+            padding: 10px;
+            position: relative;
+        }
+        .author-poem-box {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 5px;
+            float: left;
+        }
+        .author-poem-content {
+            position: relative;
+            min-height: 170px;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="#">Konopnicka</a>
+        <a href="#">Tuwim</a>
+        <a href="#">Jachowicz</a>
+        <a href="#">Brzechwa</a>
+    </div>
+    
+    <div class="header">
+        <h1>Wiersze dla dzieci</h1>
+        <div>
+            <h2>Maria Konopnicka</h2>
+            <p>Czy to bajka, czy nie bajka,<br>
+            Myślcie sobie, jak tam chcecie.<br>
+            A ja przecież wam powiadam:<br>
+            Krasnoludki są na świecie...</p>
+        </div>
+        <img src="/api/placeholder/150/200" alt="Maria Konopnicka">
+    </div>
+    
+    <div class="author-section">
+        <div class="author-header">Maria Konopnicka</div>
+        <div class="author-nav">
+            <a href="#">Przy strumieniu</a>
+            <a href="#">Kukułeczka</a>
+            <a href="#">Bocian</a>
+            <a href="#">Między samochodami</a>
+            <a href="#">Szczęsny domek</a>
+        </div>
+        
+        <div class="poems-container">
+            <div class="poem-box">
+                <div class="poem-content">
+                    <div class="poem-title">Co Słonko widziało</div>
+                    <img class="poem-image" src="/api/placeholder/100/120" alt="Co Słonko widziało">
+                    <div class="poem-text">
+                        Cały dzionek słonko Po niebie chodziło,<br>
+                        Czego nie widziało! Na co nie patrzyło!<br>
+                        <br>
+                        Patry text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="poem-box">
+                <div class="poem-content">
+                    <div class="poem-title">Krasnoludki</div>
+                    <img class="poem-image" src="/api/placeholder/100/120" alt="Krasnoludki">
+                    <div class="poem-text">
+                        Czy to bajka, czy nie bajka, Myślcie sobie, jak tam chcecie.<br>
+                        Krasnoludki są na świecie.<br>
+                        <br>
+                        Patry text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="poem-box">
+                <div class="poem-content">
+                    <div class="poem-title">Inne wiersze<br>Marii Konopnickiej</div>
+                    <div class="poem-text">
+                        <a href="http://wierszekidladzieci.pl/konopnicka.php" style="color: yellow;">http://wierszekidladzieci.pl/konopnicka.php</a><br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="author-section">
+        <div class="author-header">Julian Tuwim</div>
+        <div class="author-nav">
+            <a href="#">Ptasie radio</a>
+            <a href="#">Abecadło</a>
+            <a href="#">Rzepka</a>
+            <a href="#">Paryk</a>
+            <a href="#">Bambo</a>
+        </div>
+        
+        <div class="poems-container">
+            <div class="poem-box">
+                <div class="poem-content">
+                    <div class="poem-title">Okulary</div>
+                    <div class="poem-text">
+                        Biega, krzyczy pan Hilary: "Gdzie są moje okulary?"<br>
+                        Szuka w szafie i w komodzie, W przechodzie.<br>
+                        W prymusie i w piórnice, w lewy bucik.<br>
+                        Wszystko w szafie poprzewracał, Maca<br>
+                        szlafrok, palto, maca.<br>
+                        "Skandal! - krzyczy - nie do wiary! Ktoś mi ukradł okulary!"<br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="poem-box">
+                <div class="poem-content">
+                    <div class="poem-title">Spóźniony słowik</div>
+                    <div class="poem-text">
+                        Płacze pani Słowikowa w gniazdku na akacji,<br>
+                        Bo pan Słowik przed dziewiątą miał być na kolacji.<br>
+                        Tak się godzin wyznaczonych pilnie zawsze trzyma,<br>
+                        A już jest po jedenastej - i Słowika nie ma!<br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="poem-box">
+                <div class="poem-content">
+                    <div class="poem-title">Inne wiersze<br>Juliana Tuwima</div>
+                    <div class="poem-text">
+                        <a href="http://wierszekidladzieci.pl/tuwim.php" style="color: yellow;">http://wierszekidladzieci.pl/tuwim.php</a><br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="author-section">
+        <div class="author-header">Stanisław Jachowicz</div>
+        <div class="author-nav">
+            <a href="#">Chory kotek</a>
+            <a href="#">Paulinka</a>
+            <a href="#">Nikołajek</a>
+            <a href="#">Rybołów</a>
+            <a href="#">Kogucik</a>
+        </div>
+        
+        <div class="poems-container clearfix">
+            <div class="author-poem-box">
+                <div class="author-poem-content">
+                    <div class="poem-title">Karolek i słońce</div>
+                    <img class="poem-image" src="/api/placeholder/100/120" alt="Karolek i słońce">
+                    <div class="poem-text">
+                        Czasem dobrze życzących nie lubimy ludzi.<br>
+                        Karolka wciąlo słońce i Karolek budzi.<br>
+                        Ależ dajcie mi pokój! — rzecze rozgniewany —<br>
+                        O, nie! — odpowie słońce — wstawaj mój kochany!<br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="author-poem-box">
+                <div class="author-poem-content">
+                    <div class="poem-title">Dziecię i zegar</div>
+                    <img class="poem-image" src="/api/placeholder/100/120" alt="Dziecię i zegar">
+                    <div class="poem-text">
+                        Uderza godzina — i cóż ten głos znaczy? —<br>
+                        Pytało się dziecko, a matka tłumaczy:<br>
+                        Dziś jeszcze zrozumiesz twój umysł nie zdoła,<br>
+                        Jak całość stanowią te kółka i koła.<br>
+                        Jak człowiek cudownie potrafi czas mierzyć.<br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="author-poem-box">
+                <div class="author-poem-content">
+                    <div class="poem-title">Piał kogucik kukuryku</div>
+                    <img class="poem-image" src="/api/placeholder/100/120" alt="Piał kogucik kukuryku">
+                    <div class="poem-text">
+                        Piał kogucik kukuryku!<br>
+                        Wstawaj rano, mój chłopczyku!<br>
+                        A chłopczyk się ze snu budzi,<br>
+                        Patry - dużo chodzi ludzi;<br>
+                        Więc się szybko zrywa z łóżka,<br>
+                        By nie stracił ani troszka,<br>
+                        I rzekł: na twę kukuryku<br>
+                        Przybywoj o koguciku.<br>
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="author-poem-box">
+                <div class="author-poem-content">
+                    <div class="poem-title">Inne wiersze<br>Stanisława Jachowicza</div>
+                    <div class="poem-text">
+                        <a href="http://wierszekidladzieci.pl/jachowicz" style="color: yellow;">http://wierszekidladzieci.pl/jachowicz</a><br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 21:00, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="author-section">
+        <div class="author-header">Jan Brzechwa</div>
+        <div class="author-nav">
+            <a href="#">Wrona i ser</a>
+            <a href="#">Pąje smutki</a>
+            <a href="#">Sąsiadka dzięcioła</a>
+            <a href="#">Hipopotam</a>
+            <a href="#">Na straganie</a>
+        </div>
+        
+        <div class="poems-container clearfix">
+            <div class="author-poem-box">
+                <div class="author-poem-content">
+                    <div class="poem-title">Na wyspach Bergamutach</div>
+                    <div class="poem-text">
+                        Na wyspach Bergamutach<br>
+                        Podobno jest kot w butach,<br>
+                        Widziano także osła,<br>
+                        Którego mrówka niosła,<br>
+                        Jest kura samograjka,<br>
+                        Znosząca złote jajka,<br>
+                        Na dębach rosną jabłka<br>
+                        W gronostajowych czapkach.<br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="author-poem-box">
+                <div class="author-poem-content">
+                    <div class="poem-title">Spóźniony słowik</div>
+                    <div class="poem-text">
+                        Płacze pani Słowikowa w gniazdku na akacji,<br>
+                        Bo pan Słowik przed dziewiątą miał być na kolacji.<br>
+                        Tak się godzin wyznaczonych pilnie zawsze trzyma,<br>
+                        A już jest po jedenastej - i Słowika nie ma!<br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+            
+            <div class="author-poem-box">
+                <div class="author-poem-content">
+                    <div class="poem-title">Inne wiersze<br>Jana Brzechwy</div>
+                    <div class="poem-text">
+                        <a href="http://wierszekidladzieci.pl/wierszebrzechwy.php" style="color: yellow;">http://wierszekidladzieci.pl/wierszebrzechwy.php</a><br>
+                        <br>
+                        Pełny text...
+                    </div>
+                </div>
+                <div class="poem-details">
+                    Artykuł został napisany 24 maja 2020 r. o godzinie 20:30, a opublikowany 25 maja 2020 r. o godzinie 07:45
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
