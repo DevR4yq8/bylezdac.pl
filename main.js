@@ -2,9 +2,12 @@ import { initScene } from './scene.js';
 import { loadProjects } from './projects.js';
 import { setupScrollAnimations } from './animations.js';
 
-// Initialize all modules
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     initScene();
-    loadProjects();
+    try {
+        await loadProjects(); 
+    } catch (error) {
+        console.error("Nie udało się załadować projektów:", error);
+    }
     setupScrollAnimations();
 });
