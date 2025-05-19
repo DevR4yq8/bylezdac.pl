@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js_dom</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1#mainHeader { /* Bardziej specyficzny selektor, jeśli jest inny h1 na stronie */
+            color: #333;
+            text-align: center;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid transparent;
+            transition: width 0.3s, height 0.3s, line-height 0.3s; /* Dodana animacja dla line-height */
+            /* Można dodać min-width/min-height jeśli potrzebne */
+        }
+        h3 {
+            color: #555; /* Domyślny kolor dla H3 */
+        }
+        .form-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px; /* Dodany odstęp, który był w poprzedniej wersji */
+            margin-bottom: 20px;
+        }
+        form {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e9e9e9;
+            flex-basis: 50%;
+        }
+        label, input[type="text"], button {
+            display: block;
+            margin-bottom: 10px;
+            /* Usunięto width: calc(100% - 22px); aby inputy i buttony mogły być węższe, jeśli kontener jest węższy */
+        }
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%; /* Inputy będą zajmować całą dostępną szerokość kontenera nadrzędnego */
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: auto; /* Przyciski będą miały szerokość dopasowaną do treści */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #textOutputDiv {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            min-height: 50px;
+            flex-basis: 50%;
+            word-wrap: break-word;
+        }
+        .info-section, .css-section {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e9f7ff;
+        }
+        .css-subsection {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+        }
+        .css-subsection label {
+            margin-top: 5px;
+            margin-bottom: 3px; /* Mniejszy odstęp pod labelką */
+        }
+        hr { /* Dodany styl dla hr, jeśli byłby potrzebny */
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+        /* Dodatkowe style dla listy z polecenia, aby była wewnątrz kontenera */
+        body > h1, body > a, body > ol {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+	
+    <h1>Proszę wykonać ćwiczenie z wagą 3, o nazwie js_dom</h1>
+    <a>Parametry ćwiczenia:</a>
+    <ol>1. Skrypt zmieniający treść nagłówka</ol>
+    <ol>2. Skrypt wstawiający tekst po prawej stronie od formularza do którego należy wpisać ten tekst. Tekst jest wstawiany do znacznika div.</ol>
+    <ol>3. Skrypty zmieniające właściwości CSS elementów strony - wg wzorca graficznego</ol>
+    <ol>4. Skrypty realizujące zdarzenia:
+        <ul>- komunikat powitalny: Witaj user1 na stronie, który pojawi się przed załadowaniem strony.</ul>
+        <ul>- po najechaniu kursorem myszy na tytuł strony (h1) zmienia się jego treść na: Tytuł najechany. Po usunięciu kursora znad obiektu, treść tytułu zostaje przywrócona</ul>
+        <ul>- Przy opuszczeniu strony powinien pojawić się komunikat pożegnalny: Wróć ponownie!</ul>
+    </ol>
+    <ol>5. Skrypty dostarczające informacje o stronie:
+        <ul>- deklaracja typu dokumentu</ul>
+        <ul>- ilość formularzy na stronie</ul>
+        <ul>- data ostatniej modyfikacji dokumentu</ul>
+        <ul>- tytuł strony</ul>
+    </ol>
+    <ol>6. Dla zdarzeń preferowana metoda obserwatora zdarzeń - addEventListener</ol>
+    
+<div class="container">
+        <h1 id="mainHeader">Oryginalny Tytuł Strony H1</h1>
+
+        <div class="css-section">
+            <h2>1. Zmiana treści nagłówka H1</h2>
+            <h3>Podsekcja testowa H3</h3>
+            <button id="changeHeaderButton">Zmień treść nagłówka H1</button>
+        </div>
+
+        <div class="form-section">
+            <form id="textForm">
+                <h2>2. Wstawianie tekstu</h2>
+                <h3>Formularz wprowadzania danych H3</h3>
+                <label for="textInput">Wpisz tekst:</label>
+                <input type="text" id="textInput" name="textInput">
+                <button type="button" id="insertTextButton">Wstaw tekst</button>
+            </form>
+            <div id="textOutputDiv">
+                <!-- Tutaj pojawi się wstawiony tekst -->
+            </div>
+        </div>
+
+        <div class="css-section">
+            <h2>3. Zmiana właściwości CSS</h2>
+
+            <div class="css-subsection">
+                <h4>Zmiana koloru dla wszystkich nagłówków h3:</h4>
+                <label for="h3ColorInput">Wpisz kolor w sekcji heksadecymalnej z #:</label>
+                <input type="text" id="h3ColorInput" placeholder="#RRGGBB">
+                <button id="changeH3ColorButton">Zmień kolor H3</button>
+            </div>
+
+            <div class="css-subsection">
+                <h4>Zmiana czcionki tytułu h1:</h4>
+                <label for="h1FontInput">Wpisz styl czcionki:</label>
+                <input type="text" id="h1FontInput" placeholder="np. Arial, sans-serif">
+                <button id="changeH1FontButton">Zmień czcionkę H1</button>
+            </div>
+
+            <div class="css-subsection">
+                <h4>Zmiana rozmiaru pudełka z tytułem h1:</h4>
+                <label for="h1WidthInput">Wpisz szerokość (np. 400px, 80%):</label>
+                <input type="text" id="h1WidthInput" placeholder="np. 400px">
+                <label for="h1HeightInput">Wpisz wysokość (np. 80px, auto):</label>
+                <input type="text" id="h1HeightInput" placeholder="np. 80px">
+                <button id="changeH1SizeButton">Zmień rozmiar H1</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>5. Informacje o stronie</h2>
+            <h3>Szczegóły dokumentu H3</h3>
+            <p id="docTypeInfo"></p>
+            <p id="formCountInfo"></p>
+            <p id="lastModifiedInfo"></p>
+            <p id="pageTitleInfo"></p>
+        </div>
+    </div>
+
+    <script>
+        // 4. Komunikat powitalny przed załadowaniem strony
+        alert('Witaj user1 na stronie!');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Elementy DOM ---
+            const mainHeader = document.getElementById('mainHeader');
+            const changeHeaderButton = document.getElementById('changeHeaderButton');
+            
+            const textInput = document.getElementById('textInput');
+            const insertTextButton = document.getElementById('insertTextButton');
+            const textOutputDiv = document.getElementById('textOutputDiv');
+
+            // Usunięto odwołania do styledParagraph, changeStyleButton, resetStyleButton
+            // const styledParagraph = document.getElementById('styledParagraph');
+            // const changeStyleButton = document.getElementById('changeStyleButton');
+            // const resetStyleButton = document.getElementById('resetStyleButton');
+
+            const h3ColorInput = document.getElementById('h3ColorInput');
+            const changeH3ColorButton = document.getElementById('changeH3ColorButton');
+            const h1FontInput = document.getElementById('h1FontInput');
+            const changeH1FontButton = document.getElementById('changeH1FontButton');
+            const h1WidthInput = document.getElementById('h1WidthInput');
+            const h1HeightInput = document.getElementById('h1HeightInput');
+            const changeH1SizeButton = document.getElementById('changeH1SizeButton');
+
+            const docTypeInfo = document.getElementById('docTypeInfo');
+            const formCountInfo = document.getElementById('formCountInfo');
+            const lastModifiedInfo = document.getElementById('lastModifiedInfo');
+            const pageTitleInfo = document.getElementById('pageTitleInfo');
+
+            // --- Zmienne pomocnicze ---
+            let originalHeaderText = ""; // Inicjalizacja na wypadek, gdyby mainHeader nie istniał
+            if (mainHeader) { // Sprawdzenie czy mainHeader istnieje przed odczytaniem textContent
+                originalHeaderText = mainHeader.textContent;
+            }
+
+            // Usunięto originalParagraphStyle, ponieważ styledParagraph został usunięty
+            /*
+            const originalParagraphStyle = {
+                backgroundColor: styledParagraph.style.backgroundColor,
+                color: styledParagraph.style.color,
+                fontSize: styledParagraph.style.fontSize,
+                border: styledParagraph.style.border,
+                padding: styledParagraph.style.padding
+            };
+            */
+
+            // originalH1Style nie jest obecnie używane do resetu, więc można go zakomentować lub usunąć, jeśli nie planujesz funkcji resetu dla H1
+            /*
+            const originalH1Style = {
+                fontFamily: mainHeader ? mainHeader.style.fontFamily : '',
+                width: mainHeader ? mainHeader.style.width : '',
+                height: mainHeader ? mainHeader.style.height : '',
+            };
+            */
+
+
+            // --- 1. Skrypt zmieniający treść nagłówka (po kliknięciu przycisku) ---
+            if (changeHeaderButton && mainHeader) { // Dodano sprawdzenie mainHeader
+                changeHeaderButton.addEventListener('click', function() {
+                    mainHeader.textContent = 'Nagłówek został zmieniony przez skrypt!';
+                });
+            }
+
+            // --- 2. Skrypt wstawiający tekst po prawej stronie od formularza ---
+            if (insertTextButton && textInput && textOutputDiv) {
+                insertTextButton.addEventListener('click', function() {
+                    const textToInsert = textInput.value;
+                    if (textToInsert.trim() !== "") {
+                        textOutputDiv.textContent = textToInsert;
+                    } else {
+                        textOutputDiv.textContent = "Proszę wpisać jakiś tekst.";
+                    }
+                    textInput.value = "";
+                });
+            }
+
+            // --- 3. Skrypty zmieniające właściwości CSS elementów strony ---
+            // NOWE: Zmiana koloru dla wszystkich nagłówków H3
+            if (changeH3ColorButton && h3ColorInput) {
+                changeH3ColorButton.addEventListener('click', function() {
+                    const newColor = h3ColorInput.value.trim();
+                    if (newColor.startsWith('#') && (newColor.length === 4 || newColor.length === 7)) {
+                        const allH3s = document.querySelectorAll('h3');
+                        allH3s.forEach(h3 => {
+                            h3.style.color = newColor;
+                        });
+                        h3ColorInput.value = ""; // Opcjonalnie: wyczyść pole po użyciu
+                    } else {
+                        alert('Proszę wpisać poprawny kolor w formacie heksadecymalnym, np. #FF0000 lub #F00');
+                    }
+                });
+            }
+
+            // NOWE: Zmiana czcionki tytułu H1
+            if (changeH1FontButton && h1FontInput && mainHeader) {
+                changeH1FontButton.addEventListener('click', function() {
+                    const newFont = h1FontInput.value.trim();
+                    if (newFont) {
+                        mainHeader.style.fontFamily = newFont;
+                        h1FontInput.value = ""; // Opcjonalnie
+                    } else {
+                        alert('Proszę wpisać nazwę czcionki.');
+                    }
+                });
+            }
+
+            // NOWE: Zmiana rozmiaru pudełka z tytułem H1
+            if (changeH1SizeButton && h1WidthInput && h1HeightInput && mainHeader) {
+                changeH1SizeButton.addEventListener('click', function() {
+                    const newWidth = h1WidthInput.value.trim();
+                    const newHeight = h1HeightInput.value.trim();
+                    let changesMade = false;
+
+                    if (newWidth) {
+                        mainHeader.style.width = newWidth;
+                        changesMade = true;
+                    }
+                    if (newHeight) {
+                        mainHeader.style.height = newHeight;
+                        // Aby tekst w H1 był widoczny i potencjalnie centrowany przy zmianie wysokości:
+                        mainHeader.style.lineHeight = newHeight; // Dopasowuje wysokość linii do wysokości kontenera
+                        mainHeader.style.display = 'flex'; // Umożliwia centrowanie
+                        mainHeader.style.alignItems = 'center'; // Centruje w pionie
+                        mainHeader.style.justifyContent = 'center'; // Centruje w poziomie (jeśli text-align nie wystarcza)
+                        mainHeader.style.overflow = "hidden"; // Zapobiega wylewaniu się tekstu
+                        changesMade = true;
+                    }
+
+                    if (!changesMade) {
+                        alert('Proszę wpisać szerokość i/lub wysokość.');
+                    } else {
+                        h1WidthInput.value = ""; // Opcjonalnie
+                        h1HeightInput.value = ""; // Opcjonalnie
+                    }
+                });
+            }
+
+
+            // --- 4. Skrypty realizujące zdarzenia ---
+            // - po najechaniu kursorem myszy na tytuł strony (h1) zmienia się jego treść
+            if (mainHeader) {
+                mainHeader.addEventListener('mouseover', function() {
+                    mainHeader.textContent = 'Tytuł najechany';
+                });
+
+                mainHeader.addEventListener('mouseout', function() {
+                    mainHeader.textContent = originalHeaderText;
+                });
+            }
+            
+            // - Przy opuszczeniu strony powinien pojawić się komunikat pożegnalny: Wróć ponownie!
+            window.addEventListener('beforeunload', function (e) {
+                const confirmationMessage = 'Wróć ponownie!';
+                e.returnValue = confirmationMessage; 
+                return confirmationMessage;          
+            });
+
+            // --- 5. Skrypty dostarczające informacje o stronie ---
+            if (docTypeInfo) {
+                let doctypeString = "Nieznany lub brak";
+                if (document.doctype) {
+                    doctypeString = "<!DOCTYPE " + document.doctype.name;
+                    if (document.doctype.publicId) {
+                        doctypeString += ' PUBLIC "' + document.doctype.publicId + '"';
+                    }
+                    if (!document.doctype.publicId && document.doctype.systemId) {
+                         doctypeString += ' SYSTEM';
+                    }
+                    if (document.doctype.systemId) {
+                        doctypeString += ' "' + document.doctype.systemId + '"';
+                    }
+                    doctypeString += ">";
+                } else if (document.all && !document.compatMode) { 
+                    doctypeString = "Tryb Quirks (brak DOCTYPE lub niepoprawny)";
+                } else if (document.documentElement.tagName.toLowerCase() === 'html' && !document.doctype) {
+                     const firstChild = document.childNodes[0];
+                     if (firstChild && firstChild.nodeType === Node.COMMENT_NODE && firstChild.nodeValue.toLowerCase().includes('doctype html')) {
+                         doctypeString = "<!DOCTYPE html> (z komentarza)"; // Używamy encji dla wyświetlenia
+                     } else if (document.compatMode === "CSS1Compat") {
+                         doctypeString = "<!DOCTYPE html> (tryb standardów)"; // Używamy encji
+                     }
+                }
+                // Poprawione wyświetlanie tagów HTML
+                docTypeInfo.innerHTML = `Deklaracja typu dokumentu: ${doctypeString.replace(/</g, "&lt;").replace(/>/g, "&gt;")}`;
+            }
+
+            if (formCountInfo) {
+                formCountInfo.textContent = `Ilość formularzy na stronie: ${document.forms.length}`;
+            }
+            
+            if (lastModifiedInfo) {
+                lastModifiedInfo.textContent = `Data ostatniej modyfikacji dokumentu: ${document.lastModified}`;
+            }
+
+            if (pageTitleInfo) {
+                pageTitleInfo.textContent = `Tytuł strony: ${document.title}`;
+            }
+        });
+    </script>
+</body>
+</html>
