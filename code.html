@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skrypty JavaScript i PHP - Wersja Jednoplikowa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset & Graph Paper Background */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Caveat', cursive;
+            font-size: 16px; /* Base font size */
+            color: #333;
+            background-color: #eef7ff; /* Light blueish paper */
+            background-image:
+                linear-gradient(to right, rgba(0,100,200,0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,100,200,0.1) 1px, transparent 1px);
+            background-size: 20px 20px; /* Adjust grid size */
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        /* Handwritten Font for Headings */
+        h1, h2, h3, h4, .main-title, .content-header, .menu-header, button, .widget h4 {
+            font-family: 'Permanent Marker', cursive;
+            color: #000;
+        }
+
+        .page-container {
+            width: 960px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-title {
+            text-align: center;
+            padding: 20px;
+            font-size: 2em;
+            border-bottom: 1px solid #000;
+            height: 80px; /* Approximate */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-content-area {
+            display: flex;
+            flex-grow: 1;
+            min-height: 620px;
+        }
+
+        .sidebar {
+            width: 170px;
+            border-right: 1px solid #000;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+
+        .menu-section {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .menu-header {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li a {
+            text-decoration: none;
+            color: #224488;
+            display: block;
+            padding: 4px 0;
+        }
+        .sidebar li a:hover {
+            font-weight: bold;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            text-align: center;
+            padding: 15px;
+            font-size: 1.6em;
+            border-bottom: 1px solid #000;
+        }
+
+        .content-body {
+            display: flex;
+            flex-grow: 1;
+            padding: 10px;
+        }
+
+        .left-panel {
+            flex-grow: 1;
+            padding-right: 10px; /* Space before right sub-sidebar */
+        }
+
+        .widget {
+            border: 1px solid #888;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .widget h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            border-bottom: 1px dashed #aaa;
+            padding-bottom: 5px;
+        }
+
+        .unit-converter label {
+            display: block;
+            margin: 10px 0 3px 0;
+            font-weight: bold;
+        }
+        .unit-converter input[type="text"] {
+            width: calc(100% - 10px);
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            font-family: 'Caveat', cursive;
+            font-size: 1em;
+        }
+        .unit-converter button {
+            padding: 8px 12px;
+            font-size: 0.9em;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+        }
+        .unit-converter button:hover {
+            background-color: #e0e0e0;
+        }
+        .static-conversion {
+            margin-top: 10px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .unit-boxes {
+            display: flex;
+            justify-content: space-around;
+            margin: 5px 0 10px 0;
+        }
+        .unit-box {
+            border: 1px solid #ccc;
+            text-align: center;
+            font-size: 0.85em;
+            width: 45%;
+        }
+        .unit-box div:first-child {
+            padding: 3px;
+            border-bottom: 1px solid #eee;
+        }
+        .unit-box div:last-child {
+            padding: 3px;
+            color: #777;
+        }
+
+
+        .right-sub-sidebar {
+            width: 150px;
+            flex-shrink: 0;
+            border-left: 1px solid #000;
+            padding: 0 10px 10px 10px;
+        }
+        .right-sub-sidebar .widget {
+            text-align: center;
+        }
+        .image-placeholder {
+            height: 80px;
+            border: 2px dashed #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #777;
+        }
+        .right-sub-sidebar button {
+            padding: 8px 10px;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+        }
+        .right-sub-sidebar button:hover {
+            background-color: #e0e0e0;
+        }
+        .right-sub-sidebar .link-widget a {
+            color: #224488;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .right-sub-sidebar .rating-widget p {
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+
+        .page-footer {
+            display: flex;
+            border-top: 1px solid #000;
+            height: 170px;
+            font-size: 0.9em;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .footer-section {
+            padding: 15px;
+            height: 100%;
+        }
+        .footer-left {
+            width: 170px;
+            flex-shrink: 0;
+        }
+        .footer-center {
+            flex-grow: 1;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            text-align: center;
+        }
+        .footer-right {
+            width: 150px;
+            flex-shrink: 0;
+            text-align: right;
+        }
+        .footer-section p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header class="main-title">
+            SKRYPTY JAVASCRIPT I PHP
+        </header>
+
+        <div class="main-content-area">
+            <nav class="sidebar">
+                <div class="menu-section">
+                    <p class="menu-header">MENU1</p>
+                    <ul>
+                        <li><a href="#">Strona1</a></li>
+                        <li><a href="#">Strona2</a></li>
+                        <li><a href="#">Strona3</a></li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <p class="menu-header">MENU2</p>
+                    <ul>
+                        <li><a href="#">Stronna1</a></li>
+                        <li><a href="#">Stronne2</a></li>
+                        <li><a href="#">Stronne3</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="content">
+                <header class="content-header">
+                    SKRYPTY JAVASCRIPT
+                </header>
+                <div class="content-body">
+                    <div class="left-panel">
+                        <section class="widget">
+                            <h4>JEDNOSTKI MIARY</h4>
+                            <div class="unit-converter">
+                                <label for="unitInput">Wpisz coś:</label>
+                                <input type="text" id="unitInput" name="unitInput">
+                                <div class="unit-boxes">
+                                    <div class="unit-box">
+                                        <div>1 cal</div>
+                                        <div>N-G</div>
+                                    </div>
+                                    <div class="unit-box">
+                                        <div>2.5 cm</div>
+                                        <div>N-C</div>
+                                    </div>
+                                </div>
+                                <label for="unitOutput">WYNIK</label>
+                                <input type="text" id="unitOutput" name="unitOutput" readonly>
+                                <button id="convertBtn">Przelicz</button>
+                            </div>
+                            <p class="static-conversion">1cal = 2.5cm</p>
+                        </section>
+
+                        <section class="widget">
+                            <h4>SYSTEMY LICZBOWE</h4>
+                            <p>
+                                W PASEK (?) służył przeliczanie np. z 10-tnego na inne systemy, zapisać przykłady, omówić podstawowe.
+                            </p>
+                        </section>
+
+                        <section class="widget description-widget">
+                            <p>
+                                Napisał funkcję według załączonego pola działania i jego objaśnień. Dodać przycisk
+                                z formularza. Na załadowanej stronie pokazać komunikat
+                                o obsługiwanym typie/nazwie formularza. Na odświeżenie/przejście
+                                z podziękowaniem za trud. Niżej można wypełnić formularz z prostymi
+                                polami - odpowiedni komunikat. Również informacja o braku możliwości
+                                wykonania działania i przyczyna. Poniżej losuje liczbę/tekst/obrazek.
+                                Metoda addEventListener.
+                            </p>
+                        </section>
+                    </div>
+
+                    <aside class="right-sub-sidebar">
+                        <div class="widget image-placeholder-widget">
+                            <div class="image-placeholder">Zdjęcie</div>
+                            <button onclick="alert('Funkcja obróbki zdjęcia')">Obróbka</button>
+                        </div>
+                        <div class="widget link-widget">
+                            <a href="http://www.costam.pl" target="_blank">www.costam.pl</a>
+                        </div>
+                        <div class="widget rating-widget">
+                            <button onclick="alert('Ocenianie witryny')">OCEŃ Witrynę</button>
+                            <p>dla WROC.pl</p>
+                        </div>
+                    </aside>
+                </div>
+            </main>
+        </div>
+
+        <footer class="page-footer">
+            <div class="footer-section footer-left">
+                <p>Bieżąca data: <span id="currentDate"></span></p>
+                <p>Data ost. modyfik.: <span id="lastModified"></span></p>
+            </div>
+            <div class="footer-section footer-center">
+                <p>Nazwa przeglądarki: <span id="browserName"></span></p>
+                <p>Adres strony: <span id="pageUrl"></span></p>
+            </div>
+            <div class="footer-section footer-right">
+                <p>Wymiary ekranu: <span id="screenDimensions"></span></p>
+                <p>Strona kodowa: <span id="pageCharset"></span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Footer: Bieżąca data
+            const currentDateElem = document.getElementById('currentDate');
+            if (currentDateElem) {
+                const now = new Date();
+                currentDateElem.textContent = now.toLocaleDateString('pl-PL', { year: 'numeric', month: '2-digit', day: '2-digit' });
+            }
+
+            // Footer: Data ost. modyfik.
+            const lastModifiedElem = document.getElementById('lastModified');
+            if (lastModifiedElem) {
+                lastModifiedElem.textContent = document.lastModified;
+            }
+
+            // Footer: Nazwa przeglądarki
+            const browserNameElem = document.getElementById('browserName');
+            if (browserNameElem) {
+                let agent = navigator.userAgent.toLowerCase();
+                let browser = "Nieznana";
+                if (agent.includes("firefox")) browser = "Firefox";
+                else if (agent.includes("opr") || agent.includes("opera")) browser = "Opera";
+                else if (agent.includes("edg")) browser = "Edge (Chromium)";
+                else if (agent.includes("edge")) browser = "Edge (Legacy)";
+                else if (agent.includes("chrome") && !agent.includes("chromium")) browser = "Chrome";
+                else if (agent.includes("safari") && !agent.includes("chrome") && !agent.includes("chromium")) browser = "Safari";
+                else if (agent.includes("msie") || agent.includes("trident")) browser = "Internet Explorer";
+                browserNameElem.textContent = browser;
+            }
+
+            // Footer: Adres strony
+            const pageUrlElem = document.getElementById('pageUrl');
+            if (pageUrlElem) {
+                pageUrlElem.textContent = window.location.href;
+            }
+
+            // Footer: Wymiary ekranu
+            const screenDimensionsElem = document.getElementById('screenDimensions');
+            if (screenDimensionsElem) {
+                screenDimensionsElem.textContent = `${screen.width}x${screen.height} (ekran); ${window.innerWidth}x${window.innerHeight} (okno)`;
+            }
+
+            // Footer: Strona kodowa
+            const pageCharsetElem = document.getElementById('pageCharset');
+            if (pageCharsetElem) {
+                pageCharsetElem.textContent = document.characterSet;
+            }
+
+            // Unit Converter Logic
+            const convertBtn = document.getElementById('convertBtn');
+            const unitInput = document.getElementById('unitInput');
+            const unitOutput = document.getElementById('unitOutput');
+
+            if (convertBtn && unitInput && unitOutput) {
+                convertBtn.addEventListener('click', function() {
+                    const inputValue = unitInput.value.trim().toLowerCase();
+                    let value = parseFloat(inputValue);
+                    
+                    if (inputValue.includes('cm') && !isNaN(parseFloat(inputValue.replace('cm','')))) {
+                        value = parseFloat(inputValue.replace('cm',''));
+                        const calValue = value / 2.5;
+                        unitOutput.value = `${calValue.toFixed(2)} cal`;
+                    } else if (inputValue.includes('cal') && !isNaN(parseFloat(inputValue.replace('cal','')))) {
+                        value = parseFloat(inputValue.replace('cal',''));
+                        const cmValue = value * 2.5;
+                        unitOutput.value = `${cmValue.toFixed(2)} cm`;
+                    } else if (!isNaN(value)) {
+                        // If no unit specified, assume it's 'cal' by default for conversion to 'cm'
+                        // or provide a way for user to select. Here, default to cal -> cm
+                        const cmValue = value * 2.5;
+                        unitOutput.value = `${cmValue.toFixed(2)} cm`;
+                    }
+                    else {
+                        unitOutput.value = "Podaj liczbę (np. 10cal lub 25cm)";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
