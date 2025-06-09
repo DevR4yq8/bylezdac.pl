@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spadający Śnieg</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .naglowek {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .platek-sniegu {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .container-glowny {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-glowny">
+        <div class="naglowek">
+            <h1>Spadający Śnieg</h1>
+            <p>Obserwuj piękną animację śniegu spadającego z grawitacją</p>
+        </div>
+    </div>
+
+    <script>
+        let platki = [];
+        let licznik = 0;
+
+        class PlатekSniegu {
+            constructor() {
+                this.x = Math.random() * window.innerWidth;
+                this.y = -20;
+                this.rozmiar = Math.random() * 3 + 2;
+                this.predkosc = Math.random() * 2 + 1;
+                this.predkoscBoczna = (Math.random() - 0.5) * 0.5;
+                this.element = this.stworzElement();
+                this.id = licznik++;
+                document.body.appendChild(this.element);
+            }
+
+            stworzElement() {
+                const div = document.createElement('div');
+                div.className = 'platek-sniegu';
+                div.innerHTML = '❄';
+                div.style.fontSize = this.rozmiar + 'px';
+                div.style.left = this.x + 'px';
+                div.style.top = this.y + 'px';
+                return div;
+            }
+
+            aktualizuj() {
+                // Grawitacja - ruch w dół
+                this.y += this.predkosc;
+                
+                // Ruch na boki
+                this.x += this.predkoscBoczna;
+                
+                // Lekkie kołysanie
+                this.predkoscBoczna += (Math.random() - 0.5) * 0.1;
+                this.predkoscBoczna *= 0.98; // Tłumienie
+                
+                // Aktualizacja pozycji elementu
+                this.element.style.left = this.x + 'px';
+                this.element.style.top = this.y + 'px';
+                
+                // Sprawdzenie czy płatek wyszedł poza ekran
+                if (this.y > window.innerHeight + 20 || 
+                    this.x < -20 || 
+                    this.x > window.innerWidth + 20) {
+                    return false; // Płatek do usunięcia
+                }
+                
+                return true; // Płatek pozostaje
+            }
+
+            usun() {
+                if (this.element && this.element.parentNode) {
+                    this.element.parentNode.removeChild(this.element);
+                }
+            }
+        }
+
+        function dodajPlatek() {
+            platki.push(new PlатekSniegu());
+        }
+
+        function animujSnieg() {
+            // Aktualizuj wszystkie płatki
+            for (let i = platki.length - 1; i >= 0; i--) {
+                if (!platki[i].aktualizuj()) {
+                    // Usuń płatek który wyszedł poza ekran
+                    platki[i].usun();
+                    platki.splice(i, 1);
+                }
+            }
+            
+            // Dodaj nowe płatki co jakiś czas
+            if (Math.random() < 0.3) {
+                dodajPlatek();
+            }
+            
+            // Kontynuuj animację
+            requestAnimationFrame(animujSnieg);
+        }
+
+        // Uruchom animację
+        animujSnieg();
+
+        // Dodaj pierwsze płatki
+        for (let i = 0; i < 10; i++) {
+            setTimeout(() => dodajPlatek(), i * 200);
+        }
+
+        // Obsługa zmiany rozmiaru okna
+        window.addEventListener('resize', function() {
+            // Usuń płatki które są poza nowym rozmiarem okna
+            for (let i = platki.length - 1; i >= 0; i--) {
+                if (platki[i].x > window.innerWidth || platki[i].y > window.innerHeight) {
+                    platki[i].usun();
+                    platki.splice(i, 1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
