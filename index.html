@@ -4,68 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BYLEZDAC</title>
-
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { background-color: #000000; color: white; font-family: 'Poppins', sans-serif; }
-
-        .webgl { position: fixed; top: 0; left: 0; outline: none; z-index: 1; }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 10, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 10;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .navbar a:hover {
-            color: #00ffff;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .content-container { position: relative; z-index: 2; }
-        .section-hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
-        .hero-content h1 { font-size: 6rem; letter-spacing: 3px; font-weight: 800; }
-        .hero-content p { font-size: 1.5rem; font-weight: 300; margin-top: 10px; }
-
-        .section-projects {
-            padding: 100px 50px;
-            id: 'projekty';
-        }
-
-        .section-projects h2 { font-size: 4rem; text-align: center; margin-bottom: 80px; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .project-card { background: rgba(26, 26, 26, 0.7); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid #333; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1); }
-        .project-card h3 { font-size: 1.8rem; margin-bottom: 10px; color: #00ffff; }
-        .project-card p { font-size: 1rem; line-height: 1.6; }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
@@ -75,7 +14,7 @@
 <canvas class="webgl"></canvas>
 
 <nav class="navbar">
-    <a href="#" class="logo">Bylezdac</a>
+    <a href="/" class="logo">BYLEZDAC</a>
     <div class="nav-links">
         <a href="https://bio.bylezdac.pl" target="_blank">Bio</a>
         <a href="#projekty">Projekty</a>
@@ -93,107 +32,28 @@
     <section class="section-projects" id="projekty">
         <h2>Moje Projekty</h2>
         <div class="projects-grid">
-            <div class="project-card"><h3>piwosze.com.pl (Anulowane)</h3><p>Serwer Minecraft Minigames/Survival. Strona internetowa by DevR4yq. Serwer Minecraft by DevR4yq & _41ms</p></div>
-            <div class="project-card"><h3>REDMC.pl (W trakcie...)</h3><p>Serwer Minecraft by _41ms.</p></div>
-            <div class="project-card"><h3>Coś Następnego?</h3><p>Co wymyślisz, to zrobimy. Dla nas nie ma rzeczy niemożliwych, co nie? ;)</p></div>
+            <a href="piwosze-com-pl.html" class="project-card">
+                <h3>piwosze.com.pl (Anulowane)</h3>
+                <p>Serwer Minecraft Minigames/Survival. Strona internetowa by DevR4yq. Serwer Minecraft by DevR4yq & _41ms</p>
+            </a>
+            <a href="redmc-pl.html" class="project-card">
+                <h3>REDMC.pl (W trakcie...)</h3>
+                <p>Serwer Minecraft by _41ms.</p>
+            </a>
+            <a href="#" class="project-card">
+                <h3>Coś Następnego?</h3>
+                <p>Co wymyślisz, to zrobimy. Dla nas nie ma rzeczy niemożliwych, co nie? ;)</p>
+            </a>
         </div>
     </section>
 </div>
 
-<script type="importmap">
-    {
-        "imports": {
-            "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
-            "GLTFLoader": "https://unpkg.com/three@0.128.0/examples/jsm/loaders/GLTFLoader.js"
-        }
-    }
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 
-<script type="module">
-    import * as THREE from 'three';
-    import { GLTFLoader } from 'GLTFLoader';
+<script src="js/main.js"></script>
 
-    gsap.registerPlugin(ScrollTrigger);
-    const canvas = document.querySelector('canvas.webgl');
-    const scene = new THREE.Scene();
-    const sizes = { width: window.innerWidth, height: window.innerHeight };
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0x00ffff, 1);
-    directionalLight.position.set(5, 5, 5);
-    scene.add(directionalLight);
-
-    const particlesGeometry = new THREE.BufferGeometry();
-    const count = 5000;
-    const positions = new Float32Array(count * 3);
-    for(let i = 0; i < count * 3; i++) {
-        positions[i] = (Math.random() - 0.5) * 20;
-    }
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.025, sizeAttenuation: true, color: 0xffffff, blending: THREE.AdditiveBlending
-    });
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
-
-    const loader = new GLTFLoader();
-    let carModel = null;
-    loader.load(
-        'https://cdn.jsdelivr.net/gh/brijesh-1804/3d-model-car-threejs@main/public/models/dodge/scene.glb',
-        (gltf) => {
-            carModel = gltf.scene;
-            carModel.scale.set(1.5, 1.5, 1.5);
-            carModel.position.y = -0.5;
-            scene.add(carModel);
-        }
-    );
-
-    const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-    camera.position.z = 5;
-    scene.add(camera);
-
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-    renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".section-hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: 1,
-        }
-    });
-
-    tl.to(particles.rotation, { x: 1, y: 2, ease: "power1.inOut" }, 0);
-    tl.to(camera.position, { z: 8, ease: "power1.inOut" }, 0);
-
-    gsap.from('.project-card', {
-        scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' },
-        duration: 1, y: 100, opacity: 0, stagger: 0.2, ease: 'power3.out'
-    });
-
-    const clock = new THREE.Clock();
-    const animate = () => {
-        const elapsedTime = clock.getElapsedTime();
-        particles.rotation.y += 0.0005;
-
-        renderer.render(scene, camera);
-        window.requestAnimationFrame(animate);
-    };
-    animate();
-
-    window.addEventListener('resize', () => {
-        sizes.width = window.innerWidth;
-        sizes.height = window.innerHeight;
-        camera.aspect = sizes.width / sizes.height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(sizes.width, sizes.height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    });
-</script>
 </body>
 </html>
